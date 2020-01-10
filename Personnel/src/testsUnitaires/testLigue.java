@@ -22,4 +22,15 @@ class testLigue
 		Employe employe = ligue.addEmploye("Bouchard", "Bernard", "g.bouchard@gmail.com", "azerty"); 
 		assertEquals(employe, ligue.getEmployes().first());
 	}
+	
+	@Test
+	void testRemove() 
+	{
+		Ligue ligue = new Ligue("Fléchettes");
+		Employe employe = ligue.addEmploye("Bouchard", "Bernard", "g.bouchard@gmail.com", "azerty");
+		employe.remove();
+		assertEquals(ligue.getEmployes().contains(employe));
+	}
+	
+	
 }

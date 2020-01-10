@@ -15,6 +15,32 @@ public class testEmploye {
 	 Employe employe = new Employe(ligue,"nom","prenom","mail","password");
 	 assertEquals("Fléchettes", employe.getNom());
 	}
+	
+	@Test
+	void testSetPrenom() 
+	{
+	 Ligue ligue = new Ligue ("Fléchettes");
+	 Employe employe = new Employe(ligue,"nom","prenom","mail","password");
+	 assertEquals("Fléchettes", employe.getPrenom());
+	}
+	
+	@Test
+	void testSetMail() 
+	{
+	 Ligue ligue = new Ligue ("Fléchettes");
+	 Employe employe = new Employe(ligue,"nom","prenom","mail","password");
+	 assertEquals("Fléchettes", employe.getMail());
+	}
+	
+	@Test
+	void testSetPassword() 
+	{
+	 Ligue ligue = new Ligue ("Fléchettes");
+	 Employe employe = new Employe(ligue,"nom","prenom","mail","password");
+	 String mdp ="123";
+	 assertEquals("Fléchettes", employe.checkPassword(mdp));
+	}
+	
 	@Test
     void  testGetAdministrateur()
     {
