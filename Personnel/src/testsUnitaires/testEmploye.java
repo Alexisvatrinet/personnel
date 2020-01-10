@@ -15,5 +15,12 @@ public class testEmploye {
 	 Employe employe = new Employe(ligue,"nom","prenom","mail","password");
 	 assertEquals("Fléchettes", employe.getNom());
 	}
-			 
+	@Test
+    void  testGetAdministrateur()
+    {
+            Ligue ligue = new Ligue("Fléchettes");
+            Employe employe = GestionPersonnel.getGestionPersonnel().getRoot();
+            ligue.setAdministrateur(employe);
+            assertEquals(employe, ligue.getAdministrateur());
+    }
 }
