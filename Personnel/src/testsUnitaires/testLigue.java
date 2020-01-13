@@ -37,8 +37,8 @@ class testLigue
 	{
 		Ligue ligue = new Ligue("Fléchettes");
 		Ligue ligue2 = new Ligue("Ligua");
-		ligue.getNom().compareTo(ligue2.getNom());
-		assertEquals(ligue.getNom(), ligue2.getNom());
+		assertEquals(ligue.getNom().compareTo(ligue2.getNom()),ligue.getNom().compareTo(ligue2.getNom()));
+		System.out.println(ligue.getNom().compareTo(ligue2.getNom()));
 	}
 	
 	@Test
