@@ -24,12 +24,18 @@ class testLigue
 	}
 	
 	@Test
+	void testGetNom() 
+	{
+		Ligue ligue = new Ligue("Fléchettes");
+		assertEquals("Fléchettes",ligue.getNom());
+	}
+	
+	@Test
 	void testSetNom() 
 	{
 		Ligue ligue = new Ligue("Fléchettes");
 		String ligue2 = "Ligua";
 		ligue.setNom(ligue2);
-		System.out.println(ligue);
 		assertEquals(ligue.getNom(),ligue2);
 	}
 	
