@@ -30,7 +30,7 @@ class testLigue
 		assertEquals("Fléchettes",ligue.getNom());
 	}
 	
-	@Test
+	@Test 
 	void testSetNom() 
 	{
 		Ligue ligue = new Ligue("Fléchettes");

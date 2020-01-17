@@ -13,9 +13,11 @@ public class testEmploye {
 	{
 	 Ligue ligue = new Ligue ("Fléchettes");
 	 Employe employe = new Employe(ligue,"nom","prenom","mail","password");
-	 assertEquals("Fléchettes", employe.getNom());
+	 String nom = "Bernard";
+	 employe.setNom(nom);
+	 assertEquals(employe.getNom(), nom);
 	}
-	
+	 
 	@Test
 	void testSetPrenom() 
 	{
