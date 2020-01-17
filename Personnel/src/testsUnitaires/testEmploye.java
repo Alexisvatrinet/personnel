@@ -23,7 +23,9 @@ public class testEmploye {
 	{
 	 Ligue ligue = new Ligue ("Fléchettes");
 	 Employe employe = new Employe(ligue,"nom","prenom","mail","password");
-	 assertEquals("Fléchettes", employe.getPrenom());
+	 String prenom = "Franklin";
+	 employe.setPrenom(prenom);
+	 assertEquals(employe.getPrenom(),prenom); 
 	}
 	
 	@Test
@@ -31,7 +33,9 @@ public class testEmploye {
 	{
 	 Ligue ligue = new Ligue ("Fléchettes");
 	 Employe employe = new Employe(ligue,"nom","prenom","mail","password");
-	 assertEquals("Fléchettes", employe.getMail());
+	 String mail = "alexis.vatrinet@homail.fr";
+	 employe.setMail(mail);
+	 assertEquals(employe.getMail(), mail);
 	}
 	
 	@Test
@@ -40,9 +44,10 @@ public class testEmploye {
 	 Ligue ligue = new Ligue ("Fléchettes");
 	 Employe employe = new Employe(ligue,"nom","prenom","mail","password");
 	 String mdp ="123";
-	 assertEquals("Fléchettes", employe.checkPassword(mdp));
+	 employe.setPassword(mdp);
+	 assertTrue(employe.checkPassword(mdp)); 
 	}
-	
+	 
 	@Test
     void  testGetAdministrateur()
     {
