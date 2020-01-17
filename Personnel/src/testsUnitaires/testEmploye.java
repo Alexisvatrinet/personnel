@@ -12,17 +12,17 @@ public class testEmploye {
 	void testSetNom() 
 	{
 	 Ligue ligue = new Ligue ("Fléchettes");
-	 Employe employe = new Employe(ligue,"nom","prenom","mail","password");
-	 String nom = "Bernard";
+	 Employe employe = ligue.addEmploye("nom","prenom","mail","password");
+	 String nom = "Bernard"; 
 	 employe.setNom(nom);
-	 assertEquals(employe.getNom(), nom);
+	 assertEquals(employe.getNom(), nom);  
 	}
 	 
 	@Test
 	void testSetPrenom() 
 	{
 	 Ligue ligue = new Ligue ("Fléchettes");
-	 Employe employe = new Employe(ligue,"nom","prenom","mail","password");
+	 Employe employe = ligue.addEmploye("nom","prenom","mail","password");
 	 String prenom = "Franklin";
 	 employe.setPrenom(prenom);
 	 assertEquals(employe.getPrenom(),prenom); 
@@ -32,7 +32,7 @@ public class testEmploye {
 	void testSetMail() 
 	{
 	 Ligue ligue = new Ligue ("Fléchettes");
-	 Employe employe = new Employe(ligue,"nom","prenom","mail","password");
+	 Employe employe = ligue.addEmploye("nom","prenom","mail","password");
 	 String mail = "alexis.vatrinet@homail.fr";
 	 employe.setMail(mail);
 	 assertEquals(employe.getMail(), mail);
@@ -42,10 +42,10 @@ public class testEmploye {
 	void testSetPassword() 
 	{
 	 Ligue ligue = new Ligue ("Fléchettes");
-	 Employe employe = new Employe(ligue,"nom","prenom","mail","password");
+	 Employe employe = ligue.addEmploye("nom","prenom","mail","password");
 	 String mdp ="123";
 	 employe.setPassword(mdp);
-	 assertTrue(employe.checkPassword(mdp)); 
+	 assertTrue(employe.checkPassword(mdp));  
 	}
 	 
 	@Test

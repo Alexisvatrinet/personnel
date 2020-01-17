@@ -41,7 +41,7 @@ class testLigue
 	
 	
 	@Test
-	void testRemove() 
+	void testRemove()  
 	{
 		Ligue ligue = new Ligue("Fléchettes");
 		Employe employe = ligue.addEmploye("Bouchard", "Bernard", "g.bouchard@gmail.com", "azerty");
@@ -54,8 +54,8 @@ class testLigue
 	{
 		Ligue ligue = new Ligue("Fléchettes");
 		Ligue ligue2 = new Ligue("Ligua");
-		assertEquals(ligue.getNom().compareTo(ligue2.getNom()),ligue.getNom().compareTo(ligue2.getNom()));
-		System.out.println(ligue.getNom().compareTo(ligue2.getNom()));
+		ligue.compareTo(ligue2);
+		assertEquals(ligue.compareTo(ligue),ligue.compareTo(ligue2));
 	}
 	
 	@Test
