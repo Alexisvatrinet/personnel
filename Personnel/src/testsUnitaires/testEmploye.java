@@ -27,7 +27,7 @@ public class testEmploye {
 	 employe.setPrenom(prenom);
 	 assertEquals(employe.getPrenom(),prenom); 
 	}
-	
+	 
 	@Test
 	void testSetMail() 
 	{
@@ -44,10 +44,19 @@ public class testEmploye {
 	 Ligue ligue = new Ligue ("Fléchettes");
 	 Employe employe = ligue.addEmploye("nom","prenom","mail","password");
 	 String mdp ="123";
-	 employe.setPassword(mdp);
+	 employe.setPassword(mdp); 
 	 assertTrue(employe.checkPassword(mdp));  
 	}
 	 
+	@Test
+	void testCompareTo() 
+	{
+		Ligue ligue = new Ligue("Fléchettes");
+		Employe employe = ligue.addEmploye("nom","prenom","mail","password");
+		Employe autre = ligue.addEmploye("Bernard","alex","demain@labas.fr","42");
+		assertTrue(employe.compareTo(autre)>-1);
+	}  
+	
 	@Test
     void  testGetAdministrateur()
     {

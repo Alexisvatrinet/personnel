@@ -8,7 +8,7 @@ import personnel.*;
 
 class testLigue 
 {
-	@Test
+	@Test 
 	void createLigue() 
 	{
 		Ligue ligue = new Ligue("Fléchettes");
@@ -53,12 +53,11 @@ class testLigue
 	void testCompareTo() 
 	{
 		Ligue ligue = new Ligue("Fléchettes");
-		Ligue ligue2 = new Ligue("Ligua");
-		ligue.compareTo(ligue2);
-		assertEquals(ligue.compareTo(ligue),ligue.compareTo(ligue2));
-	}
-	
-	@Test
+		Ligue autre = new Ligue("Ligua");
+		assertTrue(ligue.compareTo(autre)<0);
+	} 
+	 
+	@Test 
 	void testToString() 
 	{
 		Ligue ligue = new Ligue("Fléchettes");
