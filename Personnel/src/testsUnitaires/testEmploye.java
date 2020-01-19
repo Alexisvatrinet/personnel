@@ -36,7 +36,7 @@ public class testEmploye {
 	 String mail = "alexis.vatrinet@homail.fr";
 	 employe.setMail(mail);
 	 assertEquals(employe.getMail(), mail);
-	}
+	} 
 	
 	@Test
 	void testSetPassword() 
@@ -48,6 +48,14 @@ public class testEmploye {
 	 assertTrue(employe.checkPassword(mdp));  
 	}
 	 
+//	@Test
+//	void testestRoot() 
+//	{
+//		Ligue ligue = new Ligue("Fléchettes");
+//		Employe employe = ligue.addEmploye("nom","prenom","mail","password");
+//		assertTrue(employe.estRoot()); 
+//	}  
+	 
 	@Test
 	void testCompareTo() 
 	{
@@ -55,10 +63,29 @@ public class testEmploye {
 		Employe employe = ligue.addEmploye("nom","prenom","mail","password");
 		Employe autre = ligue.addEmploye("Bernard","alex","demain@labas.fr","42");
 		assertTrue(employe.compareTo(autre)>-1);
-	}  
+	}   
 	
 	@Test
-    void  testGetAdministrateur()
+	void testRemove()  
+	{
+		Ligue ligue = new Ligue("Fléchettes");
+		Employe employe = ligue.addEmploye("Bouchard", "Bernard", "g.bouchard@gmail.com", "azerty");
+		employe.remove();
+		assertFalse(ligue.getEmployes().contains(employe));
+		/// Faux , à changer soon
+	}
+	
+//	//@Test 
+//	void testgetLigue() 
+//	{
+//		Ligue ligue = new Ligue("Fléchettes");
+//		Employe employe = ligue.addEmploye("Bouchard", "Bernard", "g.bouchard@gmail.com", "azerty");
+//		ligue.getEmployes();
+//		assertEquals(employe , ligue.getNom());   
+//	}
+	
+	@Test
+    void  testGetAdministrateur() 
     {
             Ligue ligue = new Ligue("Fléchettes");
             Employe employe = GestionPersonnel.getGestionPersonnel().getRoot();

@@ -49,9 +49,9 @@ class testLigue
 		assertFalse(ligue.getEmployes().contains(employe));
 	}
 	
-	@Test
+	@Test 
 	void testCompareTo() 
-	{
+	{ 
 		Ligue ligue = new Ligue("Fléchettes");
 		Ligue autre = new Ligue("Ligua");
 		assertTrue(ligue.compareTo(autre)<0);
