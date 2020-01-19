@@ -65,4 +65,14 @@ public class testEmploye {
             ligue.setAdministrateur(employe);
             assertEquals(employe, ligue.getAdministrateur());
     }
+	
+	@Test 
+	void testToString() 
+	{
+		Ligue ligue = new Ligue("Fléchettes");
+		Employe employe = ligue.addEmploye("nom", "prenom", "mail", "password");
+		String nom = "Bernard";
+		employe.setNom(nom); 
+		assertTrue(employe.toString().contains("Bernard"));
+	}
 }
