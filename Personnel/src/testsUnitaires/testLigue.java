@@ -33,12 +33,20 @@ class testLigue
 	@Test 
 	void testSetNom() 
 	{
-		Ligue ligue = new Ligue("Fléchettes");
+		Ligue ligue = new Ligue("Fléchettes"); 
 		String ligue2 = "Ligua";
 		ligue.setNom(ligue2);
 		assertEquals(ligue.getNom(),ligue2);
 	}
 	
+	@Test
+    void  testGetAdministrateur() 
+    {
+            Ligue ligue = new Ligue("Fléchettes");
+            Employe employe = GestionPersonnel.getGestionPersonnel().getRoot();
+            ligue.setAdministrateur(employe);
+            assertEquals(employe, ligue.getAdministrateur());
+    }
 	
 	@Test
 	void testRemove()  

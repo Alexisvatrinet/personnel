@@ -48,13 +48,14 @@ public class testEmploye {
 	 assertTrue(employe.checkPassword(mdp));  
 	}
 	 
-//	@Test
-//	void testestRoot() 
-//	{
-//		Ligue ligue = new Ligue("Fléchettes");
-//		Employe employe = ligue.addEmploye("nom","prenom","mail","password");
-//		assertTrue(employe.estRoot()); 
-//	}  
+	@Test
+	void testestRoot() 
+	{
+		Ligue ligue = new Ligue("Fléchettes");
+		Employe employe = GestionPersonnel.getGestionPersonnel().getRoot();
+		ligue.setAdministrateur(employe);
+		assertTrue(employe.estRoot()); 
+	}  
 	 
 	@Test
 	void testCompareTo() 
@@ -84,13 +85,14 @@ public class testEmploye {
 //		assertEquals(employe , ligue.getNom());   
 //	}
 	
+	
 	@Test
-    void  testGetAdministrateur() 
+    void   estAdministrateur() 
     {
             Ligue ligue = new Ligue("Fléchettes");
-            Employe employe = GestionPersonnel.getGestionPersonnel().getRoot();
+            Employe employe = ligue.addEmploye("Bouchard", "Bernard", "g.bouchard@gmail.com", "azerty");
             ligue.setAdministrateur(employe);
-            assertEquals(employe, ligue.getAdministrateur());
+            assertNotEquals(employe.estAdmin(ligue),ligue.getAdministrateur());  
     }
 	
 	@Test 
