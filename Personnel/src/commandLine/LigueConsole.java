@@ -2,8 +2,9 @@ package commandLine;
 
 import static commandLineMenus.rendering.examples.util.InOut.getString;
 
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.ArrayList;
-
 import commandLineMenus.List;
 import commandLineMenus.Menu;
 import commandLineMenus.Option;
@@ -28,7 +29,7 @@ public class LigueConsole
 		menu.add(ajouterLigue());
 		menu.add(selectionnerLigue());
 		menu.addBack("q");
-		return menu;
+		return menu; 
 	}
 
 	private Option afficherLigues()
@@ -89,11 +90,16 @@ public class LigueConsole
 				{
 					ligue.addEmploye(getString("nom : "), 
 						getString("prenom : "), getString("mail : "), 
-						getString("password : "));
+						getString("password : ") , getDate("")); 
 				}
 		);
 	}
 	
+	private LocalDate getDate(int year,int month,int dayOfMonth) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	private Menu gererEmployes(Ligue ligue)
 	{
 		Menu menu = new Menu("Gérer les employés de " + ligue.getNom(), "e");
@@ -130,5 +136,4 @@ public class LigueConsole
 	{
 		return new Option("Supprimer", "d", () -> {ligue.remove();});
 	}
-	
 }

@@ -21,7 +21,7 @@ public class GestionPersonnel implements Serializable
 	private static GestionPersonnel gestionPersonnel = null;
 	private SortedSet<Ligue> ligues;
 	private Employe root = new Employe(null, "root", "", "", "toor");
-	private static Passerelle passerelle = new serialisation.Serialization();
+	private static Passerelle passerelle = new serialisation.Serialization(); 
 	
 	/**
 	 * Retourne l'unique instance de cette classe.

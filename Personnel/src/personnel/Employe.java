@@ -1,6 +1,7 @@
 package personnel;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 /**
  * Employé d'une ligue hébergée par la M2L. Certains peuvent 
@@ -14,15 +15,17 @@ public class Employe implements Serializable, Comparable<Employe>
 {
 	private static final long serialVersionUID = 4795721718037994734L;
 	private String nom, prenom, password, mail;
+	private LocalDate date_debut, date_fin;
 	private Ligue ligue;
 	
-	public Employe(Ligue ligue, String nom, String prenom, String mail, String password)
+	public Employe(Ligue ligue, String nom, String prenom, String mail, String password, LocalDate date_debut)
 	{
 		this.nom = nom;
 		this.prenom = prenom;
 		this.password = password;
-		this.mail = mail;
+		this.mail = mail; 
 		this.ligue = ligue;
+		this.date_debut = date_debut;
 	}
 	
 	/**
@@ -178,5 +181,21 @@ public class Employe implements Serializable, Comparable<Employe>
 		else
 			res += ligue.toString();
 		return res + ")";
+	}
+
+	public LocalDate getDateDebut() {
+		return date_debut;
+	}
+
+	public void setDateDebut(LocalDate date_debut) {
+		this.date_debut = date_debut;
+	}
+	
+	public LocalDate getDateFin() {
+		return date_fin;
+	}
+
+	public void setDateFin(LocalDate date_fin) {
+		this.date_fin = date_fin;
 	}
 }
