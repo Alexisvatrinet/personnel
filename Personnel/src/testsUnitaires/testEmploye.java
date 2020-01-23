@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import personnel.*;
 
-public class testEmploye {
+public class testEmploye { 
 	
 	@Test
 	void testSetNom() 
@@ -27,7 +27,7 @@ public class testEmploye {
 	 employe.setPrenom(prenom);
 	 assertEquals(employe.getPrenom(),prenom); 
 	}
-	 
+	  
 	@Test
 	void testSetMail() 
 	{
@@ -84,7 +84,7 @@ public class testEmploye {
 //		ligue.getEmployes();
 //		assertEquals(employe , ligue.getNom());   
 //	}
-	
+				
 	
 	@Test
     void   estAdministrateur() 
@@ -92,7 +92,7 @@ public class testEmploye {
             Ligue ligue = new Ligue("Fléchettes");
             Employe employe = ligue.addEmploye("Bouchard", "Bernard", "g.bouchard@gmail.com", "azerty");
             ligue.setAdministrateur(employe);
-            assertNotEquals(employe.estAdmin(ligue),ligue.getAdministrateur());  
+            assertNotEquals(employe.estAdmin(ligue),ligue.getAdministrateur());   
     }
 	
 	@Test 

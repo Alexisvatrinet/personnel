@@ -99,9 +99,9 @@ public class Ligue implements Serializable, Comparable<Ligue>
 	 * @return l'employé créé. 
 	 */
 
-	public Employe addEmploye(String nom, String prenom, String mail, String password, LocalDate date_debut)
+	public Employe addEmploye(String nom, String prenom, String mail, String password)
 	{
-		Employe employe = new Employe(this, nom, prenom, mail, password, date_debut);
+		Employe employe = new Employe(this, nom, prenom, mail, password);
 		employes.add(employe);
 		return employe;
 	}

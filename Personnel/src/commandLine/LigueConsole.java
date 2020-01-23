@@ -90,15 +90,15 @@ public class LigueConsole
 				{
 					ligue.addEmploye(getString("nom : "), 
 						getString("prenom : "), getString("mail : "), 
-						getString("password : ") , getDate("")); 
+						getString("password : "));
 				}
 		);
 	}
 	
-	private LocalDate getDate(int year,int month,int dayOfMonth) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+//	private LocalDate getDate(int year,int month,int dayOfMonth) {/// rapeler la fonction getDate
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
 	private Menu gererEmployes(Ligue ligue)
 	{

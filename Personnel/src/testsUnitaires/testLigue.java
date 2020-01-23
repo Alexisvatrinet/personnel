@@ -14,8 +14,7 @@ class testLigue
 		Ligue ligue = new Ligue("Fléchettes");
 		assertEquals("Fléchettes", ligue.getNom());
 	}
-
-	@Test
+ 
 	void addEmploye() 
 	{
 		Ligue ligue = new Ligue("Fléchettes");
