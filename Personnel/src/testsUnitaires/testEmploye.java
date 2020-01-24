@@ -2,11 +2,13 @@ package testsUnitaires;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.time.LocalDate;
+
 import org.junit.jupiter.api.Test;
 
 import personnel.*;
 
-public class testEmploye {
+public class testEmploye {  
 	
 	@Test
 	void testSetNom() 
@@ -27,7 +29,7 @@ public class testEmploye {
 	 employe.setPrenom(prenom);
 	 assertEquals(employe.getPrenom(),prenom); 
 	}
-	 
+	  
 	@Test
 	void testSetMail() 
 	{
@@ -39,7 +41,7 @@ public class testEmploye {
 	} 
 	
 	@Test
-	void testSetPassword() 
+	void testSetPassword() //Retourne vrai ssi le password passé en paramètre est bien celui de l'employé.
 	{
 	 Ligue ligue = new Ligue ("Fléchettes");
 	 Employe employe = ligue.addEmploye("nom","prenom","mail","password");
@@ -48,13 +50,14 @@ public class testEmploye {
 	 assertTrue(employe.checkPassword(mdp));  
 	}
 	 
-//	@Test
-//	void testestRoot() 
-//	{
-//		Ligue ligue = new Ligue("Fléchettes");
-//		Employe employe = ligue.addEmploye("nom","prenom","mail","password");
-//		assertTrue(employe.estRoot()); 
-//	}  
+	@Test
+	void testestRoot() //Retourne vrai si l'employé est le root.
+	{
+		Ligue ligue = new Ligue("Fléchettes");
+		Employe employe = GestionPersonnel.getGestionPersonnel().getRoot();
+		ligue.setAdministrateur(employe);
+		assertTrue(employe.estRoot()); 
+	}  
 	 
 	@Test
 	void testCompareTo() 
@@ -66,31 +69,30 @@ public class testEmploye {
 	}   
 	
 	@Test
-	void testRemove()  
+	void testRemove() //Supprime l'employé. 
 	{
 		Ligue ligue = new Ligue("Fléchettes");
 		Employe employe = ligue.addEmploye("Bouchard", "Bernard", "g.bouchard@gmail.com", "azerty");
 		employe.remove();
 		assertFalse(ligue.getEmployes().contains(employe));
-		/// Faux , à changer soon
 	}
 	
-//	//@Test 
-//	void testgetLigue() 
-//	{
-//		Ligue ligue = new Ligue("Fléchettes");
-//		Employe employe = ligue.addEmploye("Bouchard", "Bernard", "g.bouchard@gmail.com", "azerty");
-//		ligue.getEmployes();
-//		assertEquals(employe , ligue.getNom());   
-//	}
+	@Test 
+	void testgetLigue()//Retourne la ligue à laquelle l'employé est affecté.
+	{
+		Ligue ligue = new Ligue("Fléchettes");
+		Employe employe = ligue.addEmploye("Bouchard", "Bernard", "g.bouchard@gmail.com", "azerty");
+		assertEquals(employe.getLigue() , ligue);     
+	} 
+				
 	
 	@Test
-    void  testGetAdministrateur() 
+    void   estAdministrateur() 
     {
             Ligue ligue = new Ligue("Fléchettes");
-            Employe employe = GestionPersonnel.getGestionPersonnel().getRoot();
+            Employe employe = ligue.addEmploye("Bouchard", "Bernard", "g.bouchard@gmail.com", "azerty");
             ligue.setAdministrateur(employe);
-            assertEquals(employe, ligue.getAdministrateur());
+            assertNotEquals(employe.estAdmin(ligue),ligue.getAdministrateur());   
     }
 	
 	@Test 
@@ -101,5 +103,23 @@ public class testEmploye {
 		String nom = "Bernard";
 		employe.setNom(nom); 
 		assertTrue(employe.toString().contains("Bernard"));
+	}
+	
+	@Test 
+	void testDateDebut() 
+	{
+		Ligue ligue = new Ligue("Fléchettes");
+		Employe employe = ligue.addEmploye("nom", "prenom", "mail", "password");
+		LocalDate date = LocalDate.now ();
+		employe.setDateDebut(date);
+		assertTrue(employe.getDateDebut()==date);   
+	}
+	 
+	void testDateFin() 
+	{ 
+		Ligue ligue = new Ligue("Fléchettes");
+		Employe employe = ligue.addEmploye("nom", "prenom", "mail", "password");
+		LocalDate date = LocalDate.of(2020, 06, 14); 
+		assertTrue(employe.getDateFin()==date);   
 	}
 }

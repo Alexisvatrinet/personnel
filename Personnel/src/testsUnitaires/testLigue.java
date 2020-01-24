@@ -12,16 +12,15 @@ class testLigue
 	void createLigue() 
 	{
 		Ligue ligue = new Ligue("Fléchettes");
-		assertEquals("Fléchettes", ligue.getNom());
+		assertEquals("Fléchettes", ligue.getNom()); 
 	}
-
-	@Test
+ 
 	void addEmploye() 
 	{
 		Ligue ligue = new Ligue("Fléchettes");
 		Employe employe = ligue.addEmploye("Bouchard", "Bernard", "g.bouchard@gmail.com", "azerty"); 
 		assertEquals(employe, ligue.getEmployes().first());
-	}
+	} 
 	
 	@Test
 	void testGetNom() 
@@ -33,12 +32,20 @@ class testLigue
 	@Test 
 	void testSetNom() 
 	{
-		Ligue ligue = new Ligue("Fléchettes");
+		Ligue ligue = new Ligue("Fléchettes"); 
 		String ligue2 = "Ligua";
 		ligue.setNom(ligue2);
 		assertEquals(ligue.getNom(),ligue2);
 	}
 	
+	@Test
+    void  testGetAdministrateur() 
+    {
+            Ligue ligue = new Ligue("Fléchettes");
+            Employe employe = GestionPersonnel.getGestionPersonnel().getRoot();
+            ligue.setAdministrateur(employe);
+            assertEquals(employe, ligue.getAdministrateur());
+    }
 	
 	@Test
 	void testRemove()  

@@ -1,6 +1,7 @@
 package personnel;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Collections;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -26,7 +27,7 @@ public class Ligue implements Serializable, Comparable<Ligue>
 	 */
 	
 	public Ligue(String nom)
-	{
+	{ 
 		this.nom = nom;
 		employes = new TreeSet<>();
 		administrateur = GestionPersonnel.getGestionPersonnel().getRoot();
