@@ -12,7 +12,7 @@ class testLigue
 	void createLigue() 
 	{
 		Ligue ligue = new Ligue("Fléchettes");
-		assertEquals("Fléchettes", ligue.getNom());
+		assertEquals("Fléchettes", ligue.getNom()); 
 	}
  
 	void addEmploye() 
@@ -20,7 +20,7 @@ class testLigue
 		Ligue ligue = new Ligue("Fléchettes");
 		Employe employe = ligue.addEmploye("Bouchard", "Bernard", "g.bouchard@gmail.com", "azerty"); 
 		assertEquals(employe, ligue.getEmployes().first());
-	}
+	} 
 	
 	@Test
 	void testGetNom() 

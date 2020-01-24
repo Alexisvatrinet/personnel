@@ -2,6 +2,8 @@ package testsUnitaires;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.time.LocalDate;
+
 import org.junit.jupiter.api.Test;
 
 import personnel.*;
@@ -73,17 +75,15 @@ public class testEmploye {
 		Employe employe = ligue.addEmploye("Bouchard", "Bernard", "g.bouchard@gmail.com", "azerty");
 		employe.remove();
 		assertFalse(ligue.getEmployes().contains(employe));
-		/// Faux , à changer soon
 	}
 	
-//	//@Test 
-//	void testgetLigue() 
-//	{
-//		Ligue ligue = new Ligue("Fléchettes");
-//		Employe employe = ligue.addEmploye("Bouchard", "Bernard", "g.bouchard@gmail.com", "azerty");
-//		ligue.getEmployes();
-//		assertEquals(employe , ligue.getNom());   
-//	}
+	@Test 
+	void testgetLigue() 
+	{
+		Ligue ligue = new Ligue("Fléchettes");
+		Employe employe = ligue.addEmploye("Bouchard", "Bernard", "g.bouchard@gmail.com", "azerty");
+		assertEquals(employe.getLigue() , ligue);     
+	} 
 				
 	
 	@Test
@@ -103,5 +103,23 @@ public class testEmploye {
 		String nom = "Bernard";
 		employe.setNom(nom); 
 		assertTrue(employe.toString().contains("Bernard"));
+	}
+	
+	@Test 
+	void testDateDebut() 
+	{
+		Ligue ligue = new Ligue("Fléchettes");
+		Employe employe = ligue.addEmploye("nom", "prenom", "mail", "password");
+		LocalDate date = LocalDate.now ();
+		employe.setDateDebut(date);
+		assertTrue(employe.getDateDebut()==date);   
+	}
+	 
+	void testDateFin() 
+	{ 
+		Ligue ligue = new Ligue("Fléchettes");
+		Employe employe = ligue.addEmploye("nom", "prenom", "mail", "password");
+		LocalDate date = LocalDate.of(2020, 06, 14); 
+		assertTrue(employe.getDateFin()==date);   
 	}
 }

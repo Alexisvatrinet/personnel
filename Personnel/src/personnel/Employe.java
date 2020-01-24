@@ -45,7 +45,7 @@ public class Employe implements Serializable, Comparable<Employe>
 	/**
 	 * Retourne vrai ssi l'employé est le root.
 	 * @return vrai ssi l'employé est le root.
-	 */
+	 */ 
 	
 	public boolean estRoot()
 	{
