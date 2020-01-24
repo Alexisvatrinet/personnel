@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import personnel.*;
 
-public class testEmploye { 
+public class testEmploye {  
 	
 	@Test
 	void testSetNom() 
@@ -41,7 +41,7 @@ public class testEmploye {
 	} 
 	
 	@Test
-	void testSetPassword() 
+	void testSetPassword() //Retourne vrai ssi le password passé en paramètre est bien celui de l'employé.
 	{
 	 Ligue ligue = new Ligue ("Fléchettes");
 	 Employe employe = ligue.addEmploye("nom","prenom","mail","password");
@@ -51,7 +51,7 @@ public class testEmploye {
 	}
 	 
 	@Test
-	void testestRoot() 
+	void testestRoot() //Retourne vrai si l'employé est le root.
 	{
 		Ligue ligue = new Ligue("Fléchettes");
 		Employe employe = GestionPersonnel.getGestionPersonnel().getRoot();
@@ -69,7 +69,7 @@ public class testEmploye {
 	}   
 	
 	@Test
-	void testRemove()  
+	void testRemove() //Supprime l'employé. 
 	{
 		Ligue ligue = new Ligue("Fléchettes");
 		Employe employe = ligue.addEmploye("Bouchard", "Bernard", "g.bouchard@gmail.com", "azerty");
@@ -78,7 +78,7 @@ public class testEmploye {
 	}
 	
 	@Test 
-	void testgetLigue() 
+	void testgetLigue()//Retourne la ligue à laquelle l'employé est affecté.
 	{
 		Ligue ligue = new Ligue("Fléchettes");
 		Employe employe = ligue.addEmploye("Bouchard", "Bernard", "g.bouchard@gmail.com", "azerty");
