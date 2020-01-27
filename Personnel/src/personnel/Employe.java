@@ -15,17 +15,17 @@ public class Employe implements Serializable, Comparable<Employe>
 {
 	private static final long serialVersionUID = 4795721718037994734L;
 	private String nom, prenom, password, mail;
-	private LocalDate date_debut, date_fin;
+	private LocalDate DateDebut, DateFin;
 	private Ligue ligue;
 	
-	public Employe(Ligue ligue, String nom, String prenom, String mail, String password)
-	{ 
+	public Employe(Ligue ligue, String nom, String prenom, String mail, String password, LocalDate DateDebut)
+	{  
 		this.nom = nom;
 		this.prenom = prenom;
 		this.password = password;
 		this.mail = mail; 
 		this.ligue = ligue;
-//		this.date_debut = date_debut;
+		this.DateDebut = DateDebut; 
 	}
 	
 	/**
@@ -184,18 +184,18 @@ public class Employe implements Serializable, Comparable<Employe>
 	}
 
 	public LocalDate getDateDebut() {
-		return date_debut;
+		return DateDebut;
 	}
 
-	public void setDateDebut(LocalDate date_debut) {
-		this.date_debut = date_debut;
+	public void setDateDebut(LocalDate DateDebut) {
+		this.DateDebut = DateDebut;
 	}
 	
 	public LocalDate getDateFin() {
-		return date_fin;
+		return DateFin;
 	}
 
-	public void setDateFin(LocalDate date_fin) {
-		this.date_fin = date_fin;
+	public void setDateFin(LocalDate DateFin) {
+		this.DateFin = DateFin;
 	}
 }

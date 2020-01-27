@@ -66,7 +66,7 @@ class testLigue
 	 
 	@Test 
 	void testToString() 
-	{
+	{ 
 		Ligue ligue = new Ligue("Fléchettes");
 		String nom = "Fléchettes";
 		ligue.setNom(nom); 
