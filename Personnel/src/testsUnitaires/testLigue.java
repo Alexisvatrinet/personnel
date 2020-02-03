@@ -2,6 +2,8 @@ package testsUnitaires;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.time.LocalDate;
+
 import org.junit.jupiter.api.Test;
 
 import personnel.*;
@@ -18,7 +20,7 @@ class testLigue
 	void addEmploye() 
 	{
 		Ligue ligue = new Ligue("Fléchettes");
-		Employe employe = ligue.addEmploye("Bouchard", "Bernard", "g.bouchard@gmail.com", "azerty"); 
+		Employe employe = ligue.addEmploye("Bouchard", "Bernard", "g.bouchard@gmail.com", "azerty",LocalDate.now()); 
 		assertEquals(employe, ligue.getEmployes().first());
 	} 
 	
@@ -51,7 +53,7 @@ class testLigue
 	void testRemove()  
 	{
 		Ligue ligue = new Ligue("Fléchettes");
-		Employe employe = ligue.addEmploye("Bouchard", "Bernard", "g.bouchard@gmail.com", "azerty");
+		Employe employe = ligue.addEmploye("Bouchard", "Bernard", "g.bouchard@gmail.com", "azerty",LocalDate.now());
 		employe.remove();
 		assertFalse(ligue.getEmployes().contains(employe));
 	}

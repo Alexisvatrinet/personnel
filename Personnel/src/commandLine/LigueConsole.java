@@ -1,10 +1,14 @@
 package commandLine;
 
 import static commandLineMenus.rendering.examples.util.InOut.getString;
+import static commandLineMenus.rendering.examples.util.InOut.getInt;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
+import java.util.Date;
+
 import commandLineMenus.List;
 import commandLineMenus.Menu;
 import commandLineMenus.Option;
@@ -13,6 +17,7 @@ import personnel.*;
 
 public class LigueConsole 
 {
+	private static final LocalDate InpuDate = null;
 	private GestionPersonnel gestionPersonnel;
 	private EmployeConsole employeConsole;
 
@@ -90,15 +95,19 @@ public class LigueConsole
 				{
 					ligue.addEmploye(getString("nom : "), 
 						getString("prenom : "), getString("mail : "), 
-						getString("password : "), LocalDate(null));
+						getString("password : "), getDate());
 				}
 		);
 	}
 	
-//	private LocalDate getDate(int year,int month,int dayOfMonth) {/// rapeler la fonction getDate
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
+	private LocalDate getDate() {/// rapeler la fonction getDate
+		int year = getInt("year : ");
+		int month = getInt("mois : ");
+		int day = getInt(" day :");
+		LocalDate InputDate = LocalDate.of(year, month, day);
+		return InputDate;
+		
+	}
 
 	private Menu gererEmployes(Ligue ligue)
 	{
