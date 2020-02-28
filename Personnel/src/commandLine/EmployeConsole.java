@@ -55,11 +55,11 @@ public class EmployeConsole
 	}
 	
 	private Option changerDateDebut(final Employe employe) {
-		return new Option("changer la date", "a",() ->  {employe.setDateDebut(getDate());});
+		return new Option("changer la dateDebut", "a",() ->  {employe.setDateDebut(getDate());});
 	}
 	
 	private Option changerDateFin(final Employe employe) {
-		return new Option("changer la date", "f",() ->  {employe.setDateFin(getDate());});
+		return new Option("changer la dateFin", "f",() ->  {employe.setDateFin(getDate());});
 	}
 	private LocalDate getDate() {/// rapeler la fonction getDate
 		int year = getInt("year : ");
