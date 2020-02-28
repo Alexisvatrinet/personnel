@@ -4,11 +4,14 @@ import static commandLineMenus.rendering.examples.util.InOut.getInt;
 import static commandLineMenus.rendering.examples.util.InOut.getString;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
+import commandLineMenus.List;
 import commandLineMenus.Menu;
 import commandLineMenus.Option;
 import personnel.Employe;
 import personnel.GestionPersonnel;
+import personnel.Ligue;
 
 
 public class EmployeConsole 
@@ -28,8 +31,15 @@ public class EmployeConsole
 		menu.add(changerPassword(employe));
 		menu.add(changerDateDebut(employe));
 		menu.add(changerDateFin(employe));
+		menu.add(supprimerEmploye(employe));
 		menu.addBack("q");
 		return menu; 
+	}
+	
+	private Option supprimerEmploye(final Employe employe)
+	{
+		return new Option("Supprimer " + employe.getNom()+" "+ employe.getPrenom(), "v"
+				,()->{employe.remove();});
 	}
 
 	private Option changerNom(final Employe employe)
@@ -39,7 +49,7 @@ public class EmployeConsole
 			);
 	}
 	
-	private Option changerPrenom(final Employe employe)
+	private Option changerPrenom(final Employe employe) 
 	{
 		return new Option("Changer le prénom", "p", () -> {employe.setPrenom(getString("Nouveau prénom : "));});
 	}
