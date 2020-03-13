@@ -67,7 +67,7 @@ public class LigueConsole
 		Menu menu = new Menu("Editer " + ligue.getNom());
 		menu.add(afficher(ligue));
 		menu.add(gererEmployes(ligue));
-		//menu.add(changerAdministrateur(ligue));
+		menu.add(changerAdministrateur(ligue));
 		menu.add(changerNom(ligue));
 		menu.add(supprimer(ligue));
 		menu.addBack("q");
@@ -79,7 +79,7 @@ public class LigueConsole
 		return new Option("Renommer", "r", 
 				() -> {ligue.setNom(getString("Nouveau nom : "));});
 	}
-
+	
 	private List<Ligue> selectionnerLigue()
 	{
 		return new List<Ligue>("Sélectionner une ligue", "e", 
@@ -127,11 +127,13 @@ public class LigueConsole
 				(index, element) -> {element.remove();}
 				);
 	}
-	
-	private List<Employe> changerAdministrateur(final Ligue ligue)
-	{
-		return null;
-	}		
+
+		private List<Employe> changerAdministrateur(final Ligue ligue)
+		{
+				return new List<>("sélectionner un nouvelle administrateur", "a", 
+						() -> new ArrayList<>(ligue.getEmployes()),
+						(index, element) -> {ligue.setAdministrateur(element);}
+						);	}
 
 	private List<Employe> modifierEmploye(final Ligue ligue)
 	{
@@ -153,4 +155,8 @@ public class LigueConsole
 	{
 		return new Option("Supprimer", "d", () -> {ligue.remove();});
 	}
+	
+	//return new Option("Ajouter une date de fin de contrat ","k",
+			//()-> {employe.setDateFin(getDate());});
+//}
 }
