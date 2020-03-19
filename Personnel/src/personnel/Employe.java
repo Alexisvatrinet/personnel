@@ -2,6 +2,7 @@ package personnel;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import static commandLineMenus.rendering.examples.util.InOut.*;
 
 /**
  * Employé d'une ligue hébergée par la M2L. Certains peuvent 
@@ -18,7 +19,7 @@ public class Employe implements Serializable, Comparable<Employe>
 	private LocalDate DateDebut, DateFin;
 	private Ligue ligue;
 	
-	public Employe(Ligue ligue, String nom, String prenom, String mail, String password, LocalDate DateDebut)
+	public Employe(Ligue ligue, String nom, String prenom, String mail, String password, LocalDate DateDebut,LocalDate DateFin)
 	{  
 		this.nom = nom;
 		this.prenom = prenom;
@@ -26,6 +27,7 @@ public class Employe implements Serializable, Comparable<Employe>
 		this.mail = mail; 
 		this.ligue = ligue;
 		this.DateDebut = DateDebut; 
+		this.DateFin = DateFin;
 	}
 	
 	/**
@@ -175,7 +177,7 @@ public class Employe implements Serializable, Comparable<Employe>
 	@Override
 	public String toString()
 	{
-		String res = nom + " " + prenom + " " + mail + " " + DateDebut + " ("; 
+		String res = nom + " " + prenom + " " + mail + " " + DateDebut + "" + DateFin + " ("; 
 		if (estRoot())
 			res += "super-utilisateur";
 		else
@@ -186,10 +188,6 @@ public class Employe implements Serializable, Comparable<Employe>
 	public LocalDate getDateDebut() {
 		return DateDebut;
 	}
-
-	public void setDateDebut(LocalDate DateDebut) {
-		this.DateDebut = DateDebut;
-	}
 	
 	public LocalDate getDateFin() {
 		return DateFin;
@@ -198,4 +196,22 @@ public class Employe implements Serializable, Comparable<Employe>
 	public void setDateFin(LocalDate DateFin) {
 		this.DateFin = DateFin;
 	}
+	
+	public void setDateDebut(LocalDate DateDebut)
+    {
+        boolean validate=false;
+
+        while(!validate) {
+            if(DateDebut.isBefore(this.DateFin)) {
+                System.out.println("ERREUR!!, \n la date de fin de contrat est avant la date de début de contrat");
+                DateDebut =LocalDate.of(getInt("Year: "), getInt("Month: "), getInt("Day: "));
+            }
+            else {
+                validate = true;
+                this.DateDebut = DateDebut;
+
+            }
+    }
+        
+    }
 }

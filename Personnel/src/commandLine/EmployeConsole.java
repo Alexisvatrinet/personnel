@@ -79,4 +79,12 @@ public class EmployeConsole
 		return InputDate;
 		
 	}
+	private LocalDate getDateFin() {/// rapeler la fonction getDate
+		int year = getInt("year : ");
+		int month = getInt("mois : ");
+		int day = getInt(" day :");
+		LocalDate InputDate = LocalDate.of(year, month, day);
+		return InputDate;
+		
+	}
 }
