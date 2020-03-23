@@ -20,7 +20,7 @@ class testLigue
 	void addEmploye() 
 	{
 		Ligue ligue = new Ligue("Fléchettes");
-		Employe employe = ligue.addEmploye("Bouchard", "Bernard", "g.bouchard@gmail.com", "azerty",LocalDate.now()); 
+		Employe employe = ligue.addEmploye("Bouchard", "Bernard", "g.bouchard@gmail.com", "azerty",LocalDate.now(),null); 
 		assertEquals(employe, ligue.getEmployes().first());
 	} 
 	
@@ -53,7 +53,7 @@ class testLigue
 	void testRemove()  
 	{
 		Ligue ligue = new Ligue("Fléchettes");
-		Employe employe = ligue.addEmploye("Bouchard", "Bernard", "g.bouchard@gmail.com", "azerty",LocalDate.now());
+		Employe employe = ligue.addEmploye("Bouchard", "Bernard", "g.bouchard@gmail.com", "azerty",LocalDate.now(),null);
 		employe.remove();
 		assertFalse(ligue.getEmployes().contains(employe));
 	}
