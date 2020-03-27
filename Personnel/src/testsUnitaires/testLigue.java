@@ -88,9 +88,5 @@ class testLigue
 	}
 	
 	
-	@Test 
-	void othercreateligue() {
-		
-		
-	}
+
 }
