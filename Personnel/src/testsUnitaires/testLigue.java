@@ -2,11 +2,14 @@ package testsUnitaires;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
 import java.time.LocalDate;
 
 import org.junit.jupiter.api.Test;
 
 import personnel.*;
+
+import java.sql.*;
 
 class testLigue 
 {
@@ -75,4 +78,16 @@ class testLigue
 		assertTrue(ligue.toString().contains("Fléchettes"));
 	}
 	
+	@Test
+	
+	void testconnexion (String[] args) {
+		Connection Cnx= FillePasserelle.getlaconnexion();	
+	}
+	
+	
+	@Test 
+	void othercreateligue() {
+		
+		
+	}
 }

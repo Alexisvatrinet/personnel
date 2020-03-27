@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
 
 import personnel.*;
 
+import java.sql.*;
+
 public class testEmploye {  
 	
 	@Test
@@ -121,5 +123,10 @@ public class testEmploye {
 		Employe employe = ligue.addEmploye("nom", "prenom", "mail", "password",LocalDate.now(),null);
 		LocalDate date = LocalDate.of(2020, 06, 14); 
 		assertTrue(employe.getDateFin()==date);   
+	}
+	
+	void main (String[] args) {
+		Connection cnx = FillePasserelle.getlaconnexion();
+				
 	}
 }
