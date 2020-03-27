@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.LocalDate;
 
+import org.junit.Before;
+
 import org.junit.jupiter.api.Test;
 
 import personnel.*;
@@ -11,11 +13,11 @@ import personnel.*;
 import java.sql.*;
 
 public class testEmploye {  
-	
+	GestionPersonnel gestionPersonnel = GestionPersonnel.getGestionPersonnel();
 	@Test
-	void testSetNom() 
+	void testSetNom()throws SauvegardeImpossible 
 	{
-	 Ligue ligue = new Ligue ("Fléchettes");
+	Ligue ligue = gestionPersonnel.addLigue("Fléchettes");
 	 Employe employe = ligue.addEmploye("nom","prenom","mail","password",LocalDate.now(),null);
 	 String nom = "Bernard"; 
 	 employe.setNom(nom);
@@ -23,9 +25,9 @@ public class testEmploye {
 	}
 	 
 	@Test
-	void testSetPrenom() 
+	void testSetPrenom()throws SauvegardeImpossible 
 	{
-	 Ligue ligue = new Ligue ("Fléchettes");
+	 Ligue ligue = gestionPersonnel.addLigue("Fléchettes");
 	 Employe employe = ligue.addEmploye("nom","prenom","mail","password",LocalDate.now(),null);
 	 String prenom = "Franklin";
 	 employe.setPrenom(prenom);
@@ -33,9 +35,9 @@ public class testEmploye {
 	}
 	  
 	@Test
-	void testSetMail() 
+	void testSetMail()throws SauvegardeImpossible 
 	{
-	 Ligue ligue = new Ligue ("Fléchettes");
+	 Ligue ligue = gestionPersonnel.addLigue("Fléchettes");
 	 Employe employe = ligue.addEmploye("nom","prenom","mail","password",LocalDate.now(),null);
 	 String mail = "alexis.vatrinet@homail.fr";
 	 employe.setMail(mail);
@@ -43,9 +45,9 @@ public class testEmploye {
 	} 
 	
 	@Test
-	void testSetPassword() //Retourne vrai ssi le password passé en paramètre est bien celui de l'employé.
+	void testSetPassword()throws SauvegardeImpossible //Retourne vrai ssi le password passé en paramètre est bien celui de l'employé.
 	{
-	 Ligue ligue = new Ligue ("Fléchettes");
+	 Ligue ligue = gestionPersonnel.addLigue("Fléchettes");
 	 Employe employe = ligue.addEmploye("nom","prenom","mail","password",LocalDate.now(),null);
 	 String mdp ="123";
 	 employe.setPassword(mdp); 
@@ -53,54 +55,54 @@ public class testEmploye {
 	}
 	 
 	@Test
-	void testestRoot() //Retourne vrai si l'employé est le root.
+	void testestRoot()throws SauvegardeImpossible //Retourne vrai si l'employé est le root.
 	{
-		Ligue ligue = new Ligue("Fléchettes");
+		Ligue ligue = gestionPersonnel.addLigue("Fléchettes");
 		Employe employe = GestionPersonnel.getGestionPersonnel().getRoot();
 		ligue.setAdministrateur(employe);
 		assertTrue(employe.estRoot()); 
 	}  
 	 
 	@Test
-	void testCompareTo() 
+	void testCompareTo()throws SauvegardeImpossible 
 	{
-		Ligue ligue = new Ligue("Fléchettes");
+		Ligue ligue = gestionPersonnel.addLigue("Fléchettes");
 		Employe employe = ligue.addEmploye("nom","prenom","mail","password",LocalDate.now(),null);
 		Employe autre = ligue.addEmploye("Bernard","alex","demain@labas.fr","42",LocalDate.now(),null);
 		assertTrue(employe.compareTo(autre)>-1);
 	}   
 	
 	@Test
-	void testRemove() //Supprime l'employé. 
+	void testRemove()throws SauvegardeImpossible //Supprime l'employé. 
 	{
-		Ligue ligue = new Ligue("Fléchettes");
+		Ligue ligue = gestionPersonnel.addLigue("Fléchettes");
 		Employe employe = ligue.addEmploye("Bouchard", "Bernard", "g.bouchard@gmail.com", "azerty",LocalDate.now(),null);
 		employe.remove();
 		assertFalse(ligue.getEmployes().contains(employe));
 	}
 	
 	@Test 
-	void testgetLigue()//Retourne la ligue à laquelle l'employé est affecté.
+	void testgetLigue()throws SauvegardeImpossible//Retourne la ligue à laquelle l'employé est affecté.
 	{
-		Ligue ligue = new Ligue("Fléchettes");
+		Ligue ligue = gestionPersonnel.addLigue("Fléchettes");
 		Employe employe = ligue.addEmploye("Bouchard", "Bernard", "g.bouchard@gmail.com", "azerty",LocalDate.now(),null);
 		assertEquals(employe.getLigue() , ligue);     
 	} 
 				
 	
 	@Test
-    void   estAdministrateur() 
+    void   estAdministrateur()throws SauvegardeImpossible 
     {
-            Ligue ligue = new Ligue("Fléchettes");
+		    Ligue ligue = gestionPersonnel.addLigue("Fléchettes");
             Employe employe = ligue.addEmploye("Bouchard", "Bernard", "g.bouchard@gmail.com", "azerty",LocalDate.now(),null);
             ligue.setAdministrateur(employe);
             assertNotEquals(employe.estAdmin(ligue),ligue.getAdministrateur());   
     }
 	
 	@Test 
-	void testToString() 
+	void testToString()throws SauvegardeImpossible 
 	{
-		Ligue ligue = new Ligue("Fléchettes");
+		Ligue ligue = gestionPersonnel.addLigue("Fléchettes");
 		Employe employe = ligue.addEmploye("nom", "prenom", "mail", "password",LocalDate.now(),null);
 		String nom = "Bernard";
 		employe.setNom(nom); 
@@ -108,18 +110,18 @@ public class testEmploye {
 	}
 	
 	@Test 
-	void testDateDebut() 
+	void testDateDebut()throws SauvegardeImpossible 
 	{
-		Ligue ligue = new Ligue("Fléchettes");
+		Ligue ligue = gestionPersonnel.addLigue("Fléchettes");
 		Employe employe = ligue.addEmploye("nom", "prenom", "mail", "password",LocalDate.now(),null);
 		LocalDate date = LocalDate.now ();
 		employe.setDateDebut(date);
 		assertTrue(employe.getDateDebut()==date);   
 	}
 	 
-	void testDateFin() 
+	void testDateFin()throws SauvegardeImpossible 
 	{ 
-		Ligue ligue = new Ligue("Fléchettes");
+		Ligue ligue = gestionPersonnel.addLigue("Fléchettes");
 		Employe employe = ligue.addEmploye("nom", "prenom", "mail", "password",LocalDate.now(),null);
 		LocalDate date = LocalDate.of(2020, 06, 14); 
 		assertTrue(employe.getDateFin()==date);   
