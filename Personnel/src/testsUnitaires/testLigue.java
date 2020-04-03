@@ -81,11 +81,10 @@ class testLigue
 		assertTrue(ligue.toString().contains("Fléchettes"));
 	}
 	
-	@Test
 	
-	void testconnexion (String[] args) {
-		Connection Cnx= FillePasserelle.getlaconnexion();	
-	}
+	
+
+
 	
 	
 

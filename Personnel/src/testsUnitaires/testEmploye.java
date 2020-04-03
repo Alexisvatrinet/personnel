@@ -127,7 +127,5 @@ public class testEmploye {
 		assertTrue(employe.getDateFin()==date);   
 	}
 	
-	void testconnexion (String[] args) {
-		Connection Cnx= FillePasserelle.getlaconnexion();	
-	}
+
 }
