@@ -38,8 +38,8 @@ public class Ligue implements Serializable, Comparable<Ligue>
 	{
 		this.nom = nom;
 		employes = new TreeSet<>();
-		administrateur = GestionPersonnel.getGestionPersonnel().getRoot();
-		GestionPersonnel.getGestionPersonnel().add(this);
+		//administrateur = GestionPersonnel.getGestionPersonnel().getRoot();
+		//GestionPersonnel.getGestionPersonnel().add(this);
 		this.gestionPersonnel = gestionPersonnel;
 		administrateur = gestionPersonnel.getRoot();
 		this.id = id;

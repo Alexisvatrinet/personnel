@@ -13,6 +13,7 @@ import personnel.*;
 public class JDBC implements Passerelle 
 {
 	private static Connection laconnexion;
+	
 	 static{
 
 		 try {
@@ -32,7 +33,9 @@ public class JDBC implements Passerelle
 
 	 }
 
-	 public static Connection getlaconnexion() {
+	 public static Connection getlaconnexion()
+	 
+	 {
 		 return laconnexion;
 
 	 }
@@ -82,7 +85,7 @@ public class JDBC implements Passerelle
 		try 
 		{
 			PreparedStatement instruction;
-			instruction = laconnexion.prepareStatement("insert into ligue (nom) values(?)", Statement.RETURN_GENERATED_KEYS);
+			instruction = laconnexion.prepareStatement("insert into ligue (IDLigue,nomLigue) values (?,?)", Statement.RETURN_GENERATED_KEYS);
 			instruction.setString(1, ligue.getNom());		
 			instruction.executeUpdate();
 			ResultSet id = instruction.getGeneratedKeys();
