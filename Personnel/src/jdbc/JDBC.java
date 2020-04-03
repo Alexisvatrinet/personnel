@@ -9,6 +9,7 @@ import java.sql.Statement;
 
 import personnel.*;
 
+
 public class JDBC implements Passerelle 
 {
 	Connection connection;
