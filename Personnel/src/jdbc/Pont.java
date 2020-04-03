@@ -8,7 +8,7 @@ public class Pont {
 			port ="3306",
 			database ="personnel",
 			user = "root",
-			password = "";
+			password = "" ;
 
 	static String getUrl() 
 	{

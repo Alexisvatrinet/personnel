@@ -12,24 +12,31 @@ import personnel.*;
 
 public class JDBC implements Passerelle 
 {
-	Connection connection;
+	private static Connection laconnexion;
+	 static{
 
-	public JDBC()
-	{
-		try
-		{
-			Class.forName(Pont.getDriverClassName());
-			connection = DriverManager.getConnection(Pont.getUrl(), Pont.getUser(), Pont.getPassword());
-		}
-		catch (ClassNotFoundException e)
-		{
-			System.out.println("Pilote JDBC non installé.");
-		}
-		catch (SQLException e)
-		{
-			System.out.println(e);
-		}
+		 try {
+
+		Class.forName("com.mysql.cj.jdbc.Driver");
+
+		laconnexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/personnel ?useUnicode=true & useJDBCCompliantTimezoneShift=true & useLegacyDatetimeCode = false & serverTimezone=UTC","root","");
+
+		System.out.println("connexion réussie");	
 	}
+	catch (Exception e)
+		 {
+	        e.printStackTrace();
+	        System.out.println("Impossible de se connecter ");
+
+		 }
+
+	 }
+
+	 public static Connection getlaconnexion() {
+		 return laconnexion;
+
+	 }
+	
 
 	@Override
 	public GestionPersonnel getGestionPersonnel() 
@@ -38,7 +45,7 @@ public class JDBC implements Passerelle
 		try 
 		{
 			String requete = "select * from ligue";
-			Statement instruction = connection.createStatement();
+			Statement instruction = laconnexion.createStatement();
 			ResultSet ligues = instruction.executeQuery(requete);
 			while (ligues.next())
 				gestionPersonnel.addLigue(ligues.getInt(1), ligues.getString(2));
@@ -60,8 +67,8 @@ public class JDBC implements Passerelle
 	{
 		try
 		{
-			if (connection != null)
-				connection.close();
+			if (laconnexion != null)
+				laconnexion.close();
 		}
 		catch (SQLException e)
 		{
@@ -75,7 +82,7 @@ public class JDBC implements Passerelle
 		try 
 		{
 			PreparedStatement instruction;
-			instruction = connection.prepareStatement("insert into ligue (nom) values(?)", Statement.RETURN_GENERATED_KEYS);
+			instruction = laconnexion.prepareStatement("insert into ligue (nom) values(?)", Statement.RETURN_GENERATED_KEYS);
 			instruction.setString(1, ligue.getNom());		
 			instruction.executeUpdate();
 			ResultSet id = instruction.getGeneratedKeys();
