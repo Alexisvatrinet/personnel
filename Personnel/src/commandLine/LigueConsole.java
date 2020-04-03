@@ -59,7 +59,7 @@ public class LigueConsole
 
 	private Option ajouterLigue()
 	{
-				return new Option("Ajouter une ligue", "a", () -> {new Ligue (getString("nom : "));});
+				
 				return new Option("Ajouter une ligue","a",() ->
 				{
 					try {
