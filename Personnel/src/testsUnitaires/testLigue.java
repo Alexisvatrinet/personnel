@@ -49,10 +49,12 @@ class testLigue
 	@Test
     void  testGetAdministrateur() throws SauvegardeImpossible
     {
-			Ligue ligue = gestionPersonnel.addLigue("Fléchettes");
-            Employe employe = GestionPersonnel.getGestionPersonnel().getRoot();
-            ligue.setAdministrateur(employe);
-            assertEquals(employe, ligue.getAdministrateur());
+		Ligue ligue = gestionPersonnel.addLigue("Bowling");
+		Employe Admin= ligue.addEmploye("Bouchard", "Bernard", "g.bouchard@gmail.com", "azerty",LocalDate.now(),null);
+		Employe employe= ligue.addEmploye("Alexis", "Vatrinet", "lesangdelaveine@wanadoo.fr", "123",LocalDate.now(), null);
+		Admin.getLigue().setAdministrateur(Admin);
+		assertTrue(Admin.estAdmin(ligue));
+		assertFalse(employe.estAdmin(ligue));
     }
 	
 	@Test
