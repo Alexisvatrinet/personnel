@@ -94,6 +94,44 @@ public class JDBC implements Passerelle
 		}		
 	}
 	
+	@Override
+	public int remove (Ligue ligue) throws SauvegardeImpossible 
+	{
+		try {
+			Statement Stmt = null;
+			try {
+				PreparedStatement instruction;
+				instruction = laconnexion.prepareStatement("DELETE FROM `ligue` WHERE `ligue`.`nomLig` = \""+ligue.getNom()+"\" AND `ligue`.`idLig`="+ligue.getidLigue());
+				instruction.executeUpdate();
+			}
+			
+			catch(SQLException e){
+				throw new SauvegardeImpossible(e);
+			}
+			
+			finally {
+				
+				close(Stmt);
+				
+			}
+		} catch (Exception e) {
+	
+			e.printStackTrace();
+		}
+		GestionPersonnel.getGestionPersonnel();
+		return 0;
+	}
+	
+	private static void close( Statement Stmt)
+		throws SQLException {
+
+	
+
+	if (Stmt != null) {
+		Stmt.close();
+	}
+}
+	
 	
 }
 

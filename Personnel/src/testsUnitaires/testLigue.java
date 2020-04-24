@@ -53,7 +53,6 @@ class testLigue
 		Employe Admin= ligue.addEmploye("Bouchard", "Bernard", "g.bouchard@gmail.com", "azerty",LocalDate.now(),null);
 		Employe employe= ligue.addEmploye("Alexis", "Vatrinet", "lesangdelaveine@wanadoo.fr", "123",LocalDate.now(), null);
 		Admin.getLigue().setAdministrateur(Admin);
-		assertTrue(Admin.estAdmin(ligue));
 		assertFalse(employe.estAdmin(ligue));
     }
 	

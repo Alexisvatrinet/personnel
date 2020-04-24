@@ -75,4 +75,10 @@ public class Serialization implements personnel.Passerelle
 	{
 		return -1;
 	}
+
+	@Override
+	public int remove(Ligue ligue) throws SauvegardeImpossible {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
