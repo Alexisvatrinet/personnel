@@ -14,7 +14,7 @@ public class MenuForm extends JFrame {
 
 	private JPanel contentPane;
 	private JButton btnJFrmMenu_gerer_cpt_root;
-	private JButton btnJFrmMenu_gerer_LesLigues;
+	private JButton btnJFrmMenu_gerer_LesLigues; 
 	private JButton btnRetour_JfrmMenu_Gestion;
 
 	/**

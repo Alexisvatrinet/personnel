@@ -19,7 +19,7 @@ public class Gestion_du_Compte_root extends JFrame {
 			public void run() {
 				try {
 					Gestion_du_Compte_root frame = new Gestion_du_Compte_root();
-					frame.setVisible(true);
+					frame.setVisible(true); 
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

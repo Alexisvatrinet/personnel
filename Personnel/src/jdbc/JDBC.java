@@ -9,7 +9,7 @@ import java.sql.Statement;
 
 import personnel.*;
 
-
+ 
 public class JDBC implements Passerelle 
 {
 	private static Connection laconnexion;
@@ -59,7 +59,7 @@ public class JDBC implements Passerelle
 		}
 		return gestionPersonnel;
 	}
-
+ 
 	@Override
 	public void sauvegarderGestionPersonnel(GestionPersonnel gestionPersonnel) throws SauvegardeImpossible 
 	{

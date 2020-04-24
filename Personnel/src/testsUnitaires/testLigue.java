@@ -16,7 +16,7 @@ import java.sql.*;
 class testLigue 
 {
 	GestionPersonnel gestionPersonnel = GestionPersonnel.getGestionPersonnel();
-	@Test 
+	@Test  
 	void createLigue() throws SauvegardeImpossible 
 	{
 		Ligue ligue = gestionPersonnel.addLigue("Fléchettes");
