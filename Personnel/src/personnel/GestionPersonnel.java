@@ -22,8 +22,9 @@ public class GestionPersonnel implements Serializable
 	private static GestionPersonnel gestionPersonnel = null;
 	private SortedSet<Ligue> ligues;
 	private Employe root = new Employe(this, null, "root"," ", "", "toor", null, null);
-	public final static int SERIALIZATION = 1, JDBC = 2, TYPE_PASSERELLE = JDBC;  
+	public final static int SERIALIZATION = 1, JDBC = 2, TYPE_PASSERELLE = SERIALIZATION;  
 	private static Passerelle passerelle = JDBC == TYPE_PASSERELLE ? new jdbc.JDBC() : new serialisation.Serialization();
+	
 	
 	/**
 	 * Retourne l'unique instance de cette classe.

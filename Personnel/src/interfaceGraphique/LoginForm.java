@@ -21,6 +21,9 @@ public class LoginForm extends JFrame {
 	private JTextField Jtxt_lbl_Pwd_AdminJFrm;
 	private JButton btnValider_Jtxt_lbl_Pwd_AdminJFrm;
 	private JTextField txtApplicationGestionDu;
+	private JTextField Jtxt_lbl_Login_JFrm_1;
+	private JLabel lbl_Login_JFrm_1;
+	private JButton btnNewButton;
 
 	/**
 	 * Launch the application.
@@ -43,7 +46,7 @@ public class LoginForm extends JFrame {
 	 */
 	public LoginForm() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 494, 304);
+		setBounds(100, 100, 494, 307);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.activeCaption);
 		contentPane.setForeground(Color.LIGHT_GRAY);
@@ -54,6 +57,9 @@ public class LoginForm extends JFrame {
 		contentPane.add(getJtxt_lbl_Pwd_AdminJFrm());
 		contentPane.add(getBtnValider_Jtxt_lbl_Pwd_AdminJFrm());
 		contentPane.add(getTxtApplicationGestionDu());
+		contentPane.add(getJtxt_lbl_Login_JFrm_1());
+		contentPane.add(getLbl_Login_JFrm_1());
+		contentPane.add(getBtnNewButton());
 	}
 	private JLabel getLbl_Pwd_AdminJFrm() {
 		if (lbl_Pwd_AdminJFrm == null) {
@@ -94,4 +100,33 @@ public class LoginForm extends JFrame {
 		}
 		return txtApplicationGestionDu;
 	}
+	private JTextField getJtxt_lbl_Login_JFrm_1() {
+		if (Jtxt_lbl_Login_JFrm_1 == null) {
+			Jtxt_lbl_Login_JFrm_1 = new JTextField();
+			Jtxt_lbl_Login_JFrm_1.setText("Entrer votre Login");
+			Jtxt_lbl_Login_JFrm_1.setHorizontalAlignment(SwingConstants.CENTER);
+			Jtxt_lbl_Login_JFrm_1.setColumns(10);
+			Jtxt_lbl_Login_JFrm_1.setBounds(108, 56, 233, 23);
+		}
+		return Jtxt_lbl_Login_JFrm_1;
+	}
+	private JLabel getLbl_Login_JFrm_1() {
+		if (lbl_Login_JFrm_1 == null) {
+			lbl_Login_JFrm_1 = new JLabel("Login");
+			lbl_Login_JFrm_1.setForeground(Color.BLACK);
+			lbl_Login_JFrm_1.setFont(new Font("Tahoma", Font.BOLD, 12));
+			lbl_Login_JFrm_1.setBounds(10, 58, 88, 21);
+		}
+		return lbl_Login_JFrm_1;
+	}
+	private JButton getBtnNewButton() {
+		if (btnNewButton == null) {
+			btnNewButton = new JButton("Fermer");
+			btnNewButton.setBounds(238, 175, 89, 23);
+		}
+		return btnNewButton;
+	}
+	
+	
+	
 }
