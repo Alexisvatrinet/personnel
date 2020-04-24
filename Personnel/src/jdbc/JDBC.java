@@ -28,19 +28,14 @@ public class JDBC implements Passerelle
 		 {
 	        e.printStackTrace();
 	        System.out.println("Impossible de se connecter ");
-
 		 }
 
 	 }
-
 	 public static Connection getlaconnexion()
-	 
 	 {
 		 return laconnexion;
-
 	 }
-	
-
+	 
 	@Override
 	public GestionPersonnel getGestionPersonnel() 
 	{
@@ -85,7 +80,7 @@ public class JDBC implements Passerelle
 		try 
 		{
 			PreparedStatement instruction;
-			instruction = laconnexion.prepareStatement("insert into ligue (IDLigue,nomLigue) values (?,?)", Statement.RETURN_GENERATED_KEYS);
+			instruction = laconnexion.prepareStatement("insert into ligue (nomLigue) values (?)", Statement.RETURN_GENERATED_KEYS);
 			instruction.setString(1, ligue.getNom());		
 			instruction.executeUpdate();
 			ResultSet id = instruction.getGeneratedKeys();
@@ -98,4 +93,33 @@ public class JDBC implements Passerelle
 			throw new SauvegardeImpossible(exception);
 		}		
 	}
+	
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
