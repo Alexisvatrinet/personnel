@@ -11,6 +11,7 @@ import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import java.awt.SystemColor;
 
@@ -84,7 +85,7 @@ public class LoginForm extends JFrame {
 		if (btnValider_Jtxt_lbl_Pwd_AdminJFrm == null) {
 			btnValider_Jtxt_lbl_Pwd_AdminJFrm = new JButton("Valider");
 			btnValider_Jtxt_lbl_Pwd_AdminJFrm.setFont(new Font("Tahoma", Font.BOLD, 12));
-			btnValider_Jtxt_lbl_Pwd_AdminJFrm.setBounds(108, 174, 89, 23);
+			btnValider_Jtxt_lbl_Pwd_AdminJFrm.setLayout(new BoxLayout(this,BoxLayout.LINE_AXIS));
 		}
 		return btnValider_Jtxt_lbl_Pwd_AdminJFrm;
 	}
@@ -122,7 +123,7 @@ public class LoginForm extends JFrame {
 	private JButton getBtnNewButton() {
 		if (btnNewButton == null) {
 			btnNewButton = new JButton("Fermer");
-			btnNewButton.setBounds(238, 175, 89, 23);
+			btnNewButton.setLayout(new BoxLayout(this,BoxLayout.LINE_AXIS));
 		}
 		return btnNewButton;
 	}
